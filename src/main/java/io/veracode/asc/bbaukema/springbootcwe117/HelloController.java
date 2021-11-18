@@ -17,10 +17,10 @@ public class HelloController {
 
     @GetMapping("/")
     public String index(String name) {
-        standardLogger.debug("CWE 117: " + name);
-        decoratedWideLogger.debug("No CWE 117: " + name);
-        decoratedNarrowLogger.debug("No CWE 117" + name);
-        decoratedCastLogger.debug("No CWE 117 " + name);
+        standardLogger.debug("CWE 117: " + name); // CWE 117 reported
+        decoratedWideLogger.debug("No CWE 117: " + name); // CWE 117 reported
+        decoratedNarrowLogger.debug("No CWE 117" + name); // CWE 117 reported
+        decoratedCastLogger.debug("No CWE 117 " + name); // CWE 117 NOT reported
 
         return "CWE 80: " + name + "!";
     }

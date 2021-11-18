@@ -14,6 +14,10 @@ public class HelloController {
     private Logger decoratedWideLogger = MyLoggerFactory.getLogger(HelloController.class);
     private MyLogger decoratedNarrowLogger = MyLoggerFactory.getLogger(HelloController.class);
     private MyLoggerDecorator decoratedCastLogger = (MyLoggerDecorator)MyLoggerFactory.getLogger(HelloController.class);
+    private MyLogger decoratedNarrowCastLogger = (MyLoggerDecorator)MyLoggerFactory.getLogger(HelloController.class);
+    private MyLogger decoratedNewUppedLogger = new MyLoggerDecorator(
+            LoggerFactory.getLogger(HelloController.class)
+    );
 
     @GetMapping("/")
     public String index(String name) {
@@ -21,6 +25,8 @@ public class HelloController {
         decoratedWideLogger.debug("No CWE 117: " + name); // CWE 117 reported
         decoratedNarrowLogger.debug("No CWE 117" + name); // CWE 117 reported
         decoratedCastLogger.debug("No CWE 117 " + name); // CWE 117 NOT reported
+        decoratedNarrowCastLogger.debug("No CWE 117 " + name);
+        decoratedNewUppedLogger.debug("No CWE 117 " + name);
 
         return "CWE 80: " + name + "!";
     }

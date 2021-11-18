@@ -24,9 +24,9 @@ public class HelloController {
         standardLogger.debug("CWE 117: " + name); // CWE 117 reported
         decoratedWideLogger.debug("No CWE 117: " + name); // CWE 117 reported
         decoratedNarrowLogger.debug("No CWE 117" + name); // CWE 117 reported
-        decoratedCastLogger.debug("No CWE 117 " + name); // CWE 117 NOT reported
-        decoratedNarrowCastLogger.debug("No CWE 117 " + name);
-        decoratedNewUppedLogger.debug("No CWE 117 " + name);
+        decoratedCastLogger.debug("No CWE 117 " + name); // CWE 117 *NOT* reported
+        decoratedNarrowCastLogger.debug("No CWE 117 " + name); // CWE 117 reported
+        decoratedNewUppedLogger.debug("No CWE 117 " + name); // CWE 117 reported
 
         return "CWE 80: " + name + "!";
     }
